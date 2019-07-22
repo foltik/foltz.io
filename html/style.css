@@ -7,31 +7,12 @@ html, body {
     margin: 0;
 }
 
+body {
+    background: linear-gradient(to bottom, #666, #222);
+}
+
 svg {
     fill: #3ab5e2;
-}
-
-#nav {
-    height: 60px;
-    background-color: #333;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#nav .links {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-}
-
-#nav .links a {
-    margin: 0 30px;
-    font-size: 22px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #45cdff;
 }
 
 #banner {
@@ -41,7 +22,6 @@ svg {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(to bottom right, #a5b72f, #3ab5e2);
 }
 
 #banner canvas {
@@ -86,7 +66,6 @@ svg {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #333;
     padding-top: 80px;
 }
 
@@ -105,7 +84,7 @@ svg {
     color: #45cdff;
 }
 
-.section img {
+.section img.wrap {
     float: left;
     height: auto;
     width: 200px;
@@ -195,7 +174,7 @@ svg {
 }
 
 .work h2 {
-    font-size: 18px;
+    font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 5px;
     margin: 10px 0 30px 0;
