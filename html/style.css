@@ -1,116 +1,224 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
+
+html, body {
+    color: #fefefe;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+svg {
+    fill: #3ab5e2;
+}
+
+#nav {
+    height: 60px;
+    background-color: #333;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+}
+
+#nav .links {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#nav .links a {
+    margin: 0 30px;
+    font-size: 22px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #45cdff;
+}
+
+#banner {
+    grid-area: banner;
+    position: relative;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    background: linear-gradient(to bottom right, #a5b72f, #3ab5e2);
+}
+
+#banner canvas {
+    position: absolute;
     width: 100%;
     height: 100%;
-    margin: 0;
-    background-image: url('stars.png');
-    background-color: #00000f;
-    color: #eeeeff;
-    font-family: 'Monospace';
 }
 
-body::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(15, 15, 15, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
+#banner h1 {
+    font-size: 80px;
+    margin: 10px auto;
 }
 
-div {
+#banner h2 {
+    margin: 10px auto;
+}
+
+#banner div {
+    margin-top: 20px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#banner div svg {
+    fill: #fff;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+#banner div a {
     position: relative;
 }
 
-.text {
-    position: relative;
-    font-size: 6em;
-    letter-spacing: 20px;
-	user-select: none;
-    animation: skew 5s cubic-bezier(.25, .45, .45, .95) 4s infinite;
+#about {
+    grid-area: about;
 }
 
-.text::before, .text::after {
-    content: 'きんじつこうかい';
-    position: absolute;
-    right: 0;
-    top: 0;
-    animation-iteration-count: 2;
-    mix-blend-mode: lighten;
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding-top: 80px;
 }
 
-.text::before {
-    color: rgba(255, 0, 50, 0.8);
-    animation: left 5s ease-in 4s infinite;
+.section {
+    display: flex;
+    width: 56%;
+    flex-direction: column;
+    padding-bottom: 80px;
 }
 
-.text::after {
-    color: rgba(0, 255, 235, 0.8);
-    animation: right 5s ease-in 4s infinite;
+.section h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 30px auto 40px 0px;
+    color: #45cdff;
 }
 
-.line {
-    position: absolute;
+.section img {
+    float: left;
+    height: auto;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.section p {
+    line-height: 30px;
+    font-weight: 400;
+    margin: 0 0 20px 0px;
+    width: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 40px;
+}
+
+.grid.centered {
+    align-items: center;
+}
+
+.grid img {
     width: 100%;
-    z-index: 1;
-    background: #000;
+    height: auto;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill svg {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.skill h2 {
+    font-size: 18px;
+    color: #45cdff;
+}
+
+.skill p {
+    font-size: 14px;
+}
+
+.work .timeline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.work .timeline h1 {
+    font-size: 16px;
+    opacity: 0.9;
+    margin: 10px 20px 10px 0;
+}
+
+.work .timeline div {
+    position: relative;
+    width: 100%;
     height: 1px;
+    border-bottom: 1px solid #ccc;
 }
 
-.line.first {
-    animation: line 2s linear infinite;
+.work .timeline div.last::after {
+    content: ' ';
+    position: absolute;
+    top: -4px;
+    left: 100%;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    transform:  translateX(-12px) rotate(45deg);
 }
 
-.line.second {
-    animation: line 1s linear 1s infinite;
+.work h1 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 0 5px 0;
+    color: #45cdff;
 }
 
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-5px, 5px); }
-    40% { transform: translate(-5px, -5px); }
-    60% { transform: translate(5px, 5px); }
-    80% { transform: translate(5px, -5px); }
-    100% { transform: translate(0); }
+.work h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 10px 0 30px 0;
+    color: #888;
 }
 
-@keyframes skew {
-    0% { transform: skew(0deg, 0deg); }
-    48% { transform: skew(0deg, 0deg); filter: blur(0); }
-    49% { transform: skew(-15deg, 0deg); filter: blur(2px); }
-    50% { transform: skew(15deg, 0deg); }
-    51% { transform: skew(0deg, 0deg); filter: blur(0); }
-    100% { transform: skew(0deg, 0deg); }
+.slide {
+    overflow: hidden;
+    position: relative;
 }
 
-@keyframes line {
-    0% { top: 70px; }
-    100% { top: 180px; }
+.slide2  {
+    position: absolute;
+    animation: slide 10s infinite;
+    opacity: 0;
+    width: 100%;
+    height: auto;
 }
 
-@keyframes left {
-  0% { transform: translate(0px ,0px); filter: blur(0); }
-  46% { transform: translate(0px ,0px); filter: blur(0); }
-  47% { transform: translate(-0.5vw ,0px); filter: blur(1px); }
-  50% { transform: translate(0.45vw ,0px); filter: blur(1px); }
-  52% { transform: translate(-0.2vw ,0px); filter: blur(1px); }
-  53% { transform: translate(0px ,0px); filter: blur(0); }
-  100% { transform: translate(0px ,0px); filter: blur(0); }
-}
+.slide2 img:nth-child(1) { animation-delay: 5s; }
+.slide2 img:nth-child(2) { animation-delay: 0s; }
 
-@keyframes right {
-  0% { transform: translate(0px ,0px); filter: blur(0); }
-  46% { transform: translate(0px ,0px); filter: blur(0); }
-  47% { transform: translate(0.5vw ,0px); filter: blur(1px); }
-  50% { transform: translate(-0.45vw ,0px); filter: blur(1px); }
-  52% { transform: translate(0.2vw ,0px); filter: blur(1px); }
-  53% { transform: translate(0px ,0px); filter: blur(0); }
-  100% { transform: translate(0px ,0px); filter: blur(0); }
+@keyframes slide {
+    25% { opacity: 1; }
+    40% { opacity: 0; }
 }
