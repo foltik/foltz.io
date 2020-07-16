@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: foltz-io
-spec:
-  containers:
-    - name: foltz-io
-      image: foltik/foltz.io

@@ -40,4 +40,7 @@ jobs:
       with:
         images: 'foltik/foltz.io:latest'
         manifests: |
+          cert.yaml
+          deployment.yaml
+          service.yaml
           manifest.yaml
