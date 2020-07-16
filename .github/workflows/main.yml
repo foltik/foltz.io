@@ -26,8 +26,7 @@ jobs:
         username: foltik
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: foltik/foltz.io
-        tags: latest
-        tag_with_sha: true
+        tags: latest,${{ github.sha }}
         
     - uses: azure/k8s-set-context@v1
       with:
@@ -38,7 +37,7 @@ jobs:
     - name: Deploy to Kubernetes
       uses: Azure/k8s-deploy@v1
       with:
-        images: 'foltik/foltz.io:latest'
+        images: 'foltik/foltz.io:${{ github.sha }}'
         manifests: |
           cert.yaml
           deployment.yaml
