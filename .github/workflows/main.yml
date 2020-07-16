@@ -43,4 +43,3 @@ jobs:
           cert.yaml
           deployment.yaml
           service.yaml
-          manifest.yaml
