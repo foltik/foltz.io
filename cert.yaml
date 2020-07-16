@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: foltz-io-cert
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
   - foltz.io
