@@ -1,7 +1,0 @@
-version: '3.7'
-
-services:
-  nginx:
-    image: foltik/foltz.io
-    ports:
-      - 80:80

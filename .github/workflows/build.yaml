@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -19,6 +19,9 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
+      with:
+        lfs: true
+    - run: git lfs pull
     
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
@@ -27,18 +30,4 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: foltik/foltz.io
         tags: latest,${{ github.sha }}
-        
-    - uses: azure/k8s-set-context@v1
-      with:
-        method: kubeconfig
-        kubeconfig: ${{ secrets.KUBECONFIG }}
-      id: setcontext
-        
-    - name: Deploy to Kubernetes
-      uses: Azure/k8s-deploy@v1
-      with:
-        images: 'foltik/foltz.io:${{ github.sha }}'
-        manifests: |
-          cert.yaml
-          deployment.yaml
-          service.yaml
+        context: .
